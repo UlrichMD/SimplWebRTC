@@ -1,0 +1,50 @@
+body{
+	color: #fff;
+    max-height: 100vh;
+    background-color: #00001c;
+}
+
+.pageTitle {
+	text-align: center;
+}
+
+.mainbox {
+	display: flex;
+	padding: 0 1rem 0 1rem;
+	gap:2rem;
+}
+
+.view {
+	width:50%;
+}
+
+video{
+	width: 100%;
+    border-radius: 20px;
+}
+
+.controlbox{
+	margin-top:0.5rem;
+	text-align: center;
+}
+
+.controlbox button{
+	border-radius: 99999px;
+	border:none;
+	padding: 1.5rem;
+	cursor:pointer;
+}
+
+#endcall{
+	background-color:#fc6464;
+}
+
+@media screen and (max-width: 600px) {
+  
+	.mainbox{
+		 flex-direction: column;
+	}
+	.view{
+		width: 100%;
+	}
+}

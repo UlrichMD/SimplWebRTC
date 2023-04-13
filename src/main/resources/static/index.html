@@ -2,28 +2,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimplWebRTC</title>
+<link rel="stylesheet" href="style.css?reload=true">
 </head>
 <body>
- <div>
-	 <h1> Hallo Welt </h1>
+ <div class='pageTitle'>
+	 <h1> SimplWebRTC </h1>
  </div>
- <div>
- 	<!-- Other person's camera video will show up here -->
-	<div>
-	    <h3 style="margin: 5px">Other Person</h3>
-	    <video style="width: 50vh; height: 50vh;" id="remoteview"
-	           poster="https://img.icons8.com/fluent/48/000000/person-male.png" autoplay></video>
+ <div class='mainbox'>
+ 	<!-- Other person's camera video -->
+	<div class='view'>
+	    <h3 style="margin: 5px">Your guest</h3>
+	    <video id="remoteview" autoplay></video>
 	</div>
 	
-	<!-- Your camera video will show up here. -->
-	<div>
+	<!-- Your camera video -->
+	<div class='view'>
 	    <h3 style="margin: 5px">You</h3>
-	    <video style="width: auto; height: 20vh;" id="selfview"
-	           poster="https://img.icons8.com/fluent/48/000000/person-male.png" autoplay muted></video>
+	    <video id="selfview" autoplay muted></video>
 	</div>
  </div>
-
- <script type="text/javascript" src="test.js?reload=true"></script>
+ <div class='controlbox'>
+ 	<span>
+ 		<button id='cameraControl'>
+	 		<svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+			  <g stroke="#000000" stroke-width="2">
+			    <path d="M16 16V8a1 1 0 00-1-1H5a1 1 0 00-1 1v8a1 1 0 001 1h10a1 1 0 001-1z"/>
+			    <path stroke-linejoin="round" d="M20 7l-4 3v4l4 3V7z"/>
+			  </g>
+			</svg>
+ 		</button>
+ 	</span>
+ 	<span>
+ 		<button id='micControl'>
+	 		<svg fill="#000000" width="30px" height="30px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+		    <path d="M960.315 96.818c-186.858 0-338.862 152.003-338.862 338.861v484.088c0 186.858 152.004 338.862 338.862 338.862 186.858 0 338.861-152.004 338.861-338.862V435.68c0-186.858-152.003-338.861-338.861-338.861M427.818 709.983V943.41c0 293.551 238.946 532.497 532.497 532.497 293.55 0 532.496-238.946 532.496-532.497V709.983h96.818V943.41c0 330.707-256.438 602.668-580.9 627.471l-.006 252.301h242.044V1920H669.862v-96.818h242.043l-.004-252.3C587.438 1546.077 331 1274.116 331 943.41V709.983h96.818ZM960.315 0c240.204 0 435.679 195.475 435.679 435.68v484.087c0 240.205-195.475 435.68-435.68 435.68-240.204 0-435.679-195.475-435.679-435.68V435.68C524.635 195.475 720.11 0 960.315 0Z" fill-rule="evenodd"/>
+			</svg>
+ 		</button>
+ 	</span>
+ 	<span>
+ 		<button id='endcall'>
+	 		<svg fill="#FFFFF" width="30px" height="30px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			    <path d="M30.053 6.236c0 0.033-0.003 0.060-0.007 0.082-0.817 0.563-5.389 3.582-6.243 4.13-0.090 0.002-0.318-0.028-0.644-0.2-0.348-0.182-1.361-0.751-2.777-1.559l-1.102-0.629-1.039 0.729c-0.773 0.544-2.452 1.838-5.009 4.394-2.568 2.567-3.858 4.241-4.399 5.011l-0.729 1.039 0.63 1.102c0.611 1.069 1.342 2.36 1.563 2.779 0.178 0.337 0.191 0.567 0.191 0.63 0 0.010 0 0.019-0.001 0.026-0.48 0.765-3.581 5.436-4.146 6.26-0.080 0.014-0.254 0.001-0.471-0.151-1.758-1.269-3.592-3.070-3.856-3.775 0.176-3.751 3.473-9.014 9.299-14.84s11.085-9.121 14.824-9.295c0.707 0.253 2.52 2.088 3.779 3.829 0.088 0.129 0.14 0.288 0.14 0.437zM31.991 6.236c0-0.529-0.16-1.091-0.499-1.578-0.033-0.047-3.383-4.753-5.323-4.691-5.451 0.173-11.857 5.471-16.272 9.883s-9.713 10.819-9.887 16.292v0.045c0 1.916 4.646 5.284 4.692 5.316 1.263 0.884 2.653 0.562 3.217-0.243 0.344-0.489 3.905-5.846 4.306-6.502 0.175-0.286 0.261-0.635 0.261-1.014 0-0.489-0.143-1.032-0.421-1.561-0.271-0.515-1.16-2.077-1.596-2.841 0.473-0.673 1.684-2.254 4.177-4.745 2.474-2.476 4.068-3.697 4.745-4.173 0.764 0.435 2.325 1.323 2.839 1.593 0.969 0.511 1.936 0.57 2.589 0.155 0.615-0.389 5.931-3.937 6.438-4.303 0.477-0.346 0.735-0.964 0.735-1.634z"></path>
+			</svg>
+ 		</button>
+ 	</span>
+ </div>
+ <script type="text/javascript" src="script.js?reload=true"></script>
 </body>
 </html>
